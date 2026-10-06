@@ -18,8 +18,8 @@ autoclip = "backend.cli:main"
 autoclip-mcp = "backend.mcp_server:main"
 
 [project.urls]
-Homepage = "https://github.com/zhouxiaoka/autoclip"
-Issues = "https://github.com/zhouxiaoka/autoclip/issues"
+Homepage = "https://github.com/youzhi1701/AutoClip-"
+Issues = "https://github.com/youzhi1701/AutoClip-/issues"
 
 [tool.setuptools.packages.find]
 include = ["backend", "backend.*"]
