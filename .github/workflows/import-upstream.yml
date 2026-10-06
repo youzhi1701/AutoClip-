@@ -1,0 +1,26 @@
+name: Import AutoClip upstream
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mirror upstream repository
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          git clone --mirror https://github.com/zhouxiaoka/autoclip.git upstream.git
+          cd upstream.git
+          git remote set-url --push origin "https://x-access-token:${GH_TOKEN}@github.com/${TARGET_REPO}.git"
+          git push --mirror origin
